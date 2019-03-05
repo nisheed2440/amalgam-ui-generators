@@ -1,0 +1,12 @@
+{
+  "name": "amalgam-ui-generators",
+  "private": true,
+  "devDependencies": {
+    "eslint": "^5.15.1",
+    "jest": "^24.1.0",
+    "lerna": "^3.13.1"
+  },
+  "scripts": {
+    "test": "jest --coverage"
+  }
+}

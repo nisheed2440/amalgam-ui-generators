@@ -1,0 +1,39 @@
+{
+  "name": "@amalgam-ui/generate-container",
+  "version": "0.0.0",
+  "description": "The container generator for Amalgam UI framework",
+  "keywords": [
+    "amalgam",
+    "ui",
+    "container",
+    "typscript",
+    "generator",
+    "stimulus",
+    "react"
+  ],
+  "author": "Nisheed Jagadish <nisheed2016@gmail.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/generate-container.js",
+  "bin": {
+    "generate-container": "bin/generate-container"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "bin",
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "plop": "^2.3.0",
+    "yargs": "^13.2.1"
+  }
+}
