@@ -20,3 +20,8 @@ node_modules
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Test folders
+/packages/test
+/packages/test-container
+/packages/test-component

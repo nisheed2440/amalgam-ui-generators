@@ -1,0 +1,50 @@
+{
+  "name": "amalgam-test-container",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build:prod",
+    "build:prod": "webpack --config config/webpack.prod.js",
+    "build:dev": "webpack --config config/webpack.dev.js",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mobx": "^5.9.0",
+    "mobx-react-lite": "^1.0.1",
+    "react": "^16.8.3",
+    "react-dev-utils": "^7.0.3",
+    "react-dom": "^16.8.3",
+    "stimulus": "^1.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@storybook/addon-actions": "^5.0.0",
+    "@storybook/addon-info": "^5.0.0",
+    "@storybook/addon-links": "^5.0.0",
+    "@storybook/addons": "^5.0.0",
+    "@storybook/react": "^5.0.0",
+    "@types/jest": "^24.0.6",
+    "@types/node": "^11.9.5",
+    "@types/react": "^16.8.4",
+    "@types/react-dom": "^16.8.2",
+    "@types/react-test-renderer": "^16.8.1",
+    "@types/storybook__react": "^4.0.1",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.0.5",
+    "clean-webpack-plugin": "^1.0.1",
+    "react-docgen-typescript-webpack-plugin": "^1.1.0",
+    "react-test-renderer": "^16.8.3",
+    "ts-loader": "^5.3.3",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
+    "typescript": "^3.3.3333",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3",
+    "webpack-merge": "^4.2.1"
+  }
+}
