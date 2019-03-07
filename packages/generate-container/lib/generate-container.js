@@ -76,6 +76,10 @@ function renameContainerFiles(destCopyPath, containerNamePascalCase) {
   });
 }
 
+/**
+ * Function to generate the container
+ * @param {object} argv The yargs cli input object
+ */
 async function generateContainer(argv) {
   const progressBar = new cliProgressBar.Bar({}, cliProgressBar.Presets.legacy);
   const containerNamePascalCase = pascalCase(argv.containerName);
