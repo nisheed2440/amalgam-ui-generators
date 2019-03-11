@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const fs = require('fs-extra');
 const path = require('path');
 const chalk = require('chalk');
@@ -94,6 +95,7 @@ async function generateContainer(argv) {
     })
     .then(() => {
       progressBar.update(25);
+      console.log(chalk.green(`Generate Container: Files copied!`));
     })
     .catch(err => {
       throw err;
@@ -102,6 +104,7 @@ async function generateContainer(argv) {
   await updateComponentNameInFiles(destCopyPath, containerNameKebabCase, containerNamePascalCase)
     .then(() => {
       progressBar.update(25);
+      console.log(chalk.green(`Generate Container: Container names updated!`));
     })
     .catch(err => {
       throw err;
@@ -110,6 +113,7 @@ async function generateContainer(argv) {
   await renameContainerFiles(destCopyPath, containerNamePascalCase)
     .then(() => {
       progressBar.update(25);
+      console.log(chalk.green(`Generate Container: Container files renamed!`));
     })
     .catch(err => {
       throw err;

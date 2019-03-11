@@ -75,9 +75,8 @@ describe('@amalgam-ui/generate-container', () => {
   describe('Errors', () => {
     let fsWriteSpy;
     beforeEach(() => {
-      fsWriteSpy = jest.spyOn(fs, 'writeFile').mockImplementation(file => {
-        console.log(file);
-        return Promise.reject(new Error('Noooooooooooooo!'));
+      fsWriteSpy = jest.spyOn(fs, 'writeFile').mockImplementation(() => {
+        return Promise.reject(new Error('Test Error!'));
       });
     });
     afterEach(() => {

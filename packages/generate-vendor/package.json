@@ -1,0 +1,42 @@
+{
+  "name": "generate-vendor",
+  "version": "0.0.1-alpha.0",
+  "description": "The vendor generator for Amalgam UI framework",
+  "keywords": [
+    "amalgam",
+    "ui",
+    "vendor",
+    "typescript",
+    "react",
+    "stimulus",
+    "generator"
+  ],
+  "author": "Nisheed Jagadish <nisheed2016@gmail.com>",
+  "homepage": "https://github.com/nisheed2440/amalgam-ui-generators#readme",
+  "license": "MIT",
+  "main": "lib/generate-vendor.js",
+  "bin": {
+    "generate-vendor": "bin/generate-vendor"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "bin",
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nisheed2440/amalgam-ui-generators.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "yargs": "^13.2.1"
+  },
+  "bugs": {
+    "url": "https://github.com/nisheed2440/amalgam-ui-generators/issues"
+  }
+}

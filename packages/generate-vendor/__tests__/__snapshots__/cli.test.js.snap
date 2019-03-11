@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@amalgam-ui/generate-vendor cli should show help info 1`] = `
+"generate-vendor <vendor-folder-name>
+
+Create vendor folder for Amalgam UI framework.
+
+Positionals:
+  vendor-folder-name  The name of the vendor folder                     [string]
+
+Options:
+  -n, --namespace  The namespace for the vendor package.json
+  -d, --dest       The destination path for the vendor files
+                                                          [default: \\"packages/\\"]
+  -h, --help       Show help                                           [boolean]
+  -v, --version    Show version number                                 [boolean]
+"
+`;
+
+exports[`@amalgam-ui/generate-vendor cli should show version 1`] = `
+"0.0.1-alpha.0
+"
+`;

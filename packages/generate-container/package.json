@@ -13,7 +13,7 @@
   ],
   "author": "Nisheed Jagadish <nisheed2016@gmail.com>",
   "homepage": "",
-  "license": "ISC",
+  "license": "MIT",
   "main": "lib/generate-container.js",
   "bin": {
     "generate-container": "bin/generate-container"

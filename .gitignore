@@ -25,3 +25,6 @@ yarn-error.log*
 /packages/test
 /packages/test-container
 /packages/test-component
+
+# Lerna stuff
+lerna-debug.log
