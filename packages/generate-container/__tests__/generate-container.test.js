@@ -95,33 +95,35 @@ describe('@amalgam-ui/generate-container', () => {
   describe('generateContainer', () => {
     describe('Create new container', () => {
       it('should create new container', () => {
-        return generateContainer({ containerName, dest: 'packages' }).then(() => {
-          expect(fs.pathExistsSync(path.join(containerPath, 'package.json'))).toBeTruthy();
-          expect(fs.pathExistsSync(path.join(containerPath, '.storybook'))).toBeTruthy();
-          expect(fs.pathExistsSync(path.join(containerPath, 'config'))).toBeTruthy();
-          expect(fs.pathExistsSync(path.join(containerPath, 'src'))).toBeTruthy();
-          expect(
-            fs.pathExistsSync(path.join(containerPath, `src/${pascalCaseContainerName}.tsx`))
-          ).toBeTruthy();
-          expect(
-            fs.pathExistsSync(
-              path.join(containerPath, `src/${pascalCaseContainerName}.controller.tsx`)
-            )
-          ).toBeTruthy();
-          expect(
-            fs.pathExistsSync(
-              path.join(containerPath, `src/${pascalCaseContainerName}.controller.tsx`)
-            )
-          ).toBeTruthy();
-          expect(
-            fs.pathExistsSync(
-              path.join(
-                containerPath,
-                `src/__tests__/${pascalCaseContainerName}.controller.spec.ts`
+        return generateContainer({ containerName, dest: 'packages', namespace: '@test' }).then(
+          () => {
+            expect(fs.pathExistsSync(path.join(containerPath, 'package.json'))).toBeTruthy();
+            expect(fs.pathExistsSync(path.join(containerPath, '.storybook'))).toBeTruthy();
+            expect(fs.pathExistsSync(path.join(containerPath, 'config'))).toBeTruthy();
+            expect(fs.pathExistsSync(path.join(containerPath, 'src'))).toBeTruthy();
+            expect(
+              fs.pathExistsSync(path.join(containerPath, `src/${pascalCaseContainerName}.tsx`))
+            ).toBeTruthy();
+            expect(
+              fs.pathExistsSync(
+                path.join(containerPath, `src/${pascalCaseContainerName}.controller.tsx`)
               )
-            )
-          ).toBeTruthy();
-        });
+            ).toBeTruthy();
+            expect(
+              fs.pathExistsSync(
+                path.join(containerPath, `src/${pascalCaseContainerName}.controller.tsx`)
+              )
+            ).toBeTruthy();
+            expect(
+              fs.pathExistsSync(
+                path.join(
+                  containerPath,
+                  `src/__tests__/${pascalCaseContainerName}.controller.spec.ts`
+                )
+              )
+            ).toBeTruthy();
+          }
+        );
       });
     });
   });

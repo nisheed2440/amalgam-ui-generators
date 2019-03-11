@@ -19,10 +19,22 @@ function pascalCase(name) {
  * @param {string} file The file path to be updated
  * @param {string} containerNameKebabCase The container name in kebab case
  * @param {string} containerNamePascalCase The container name in pascal case
+ * @param {string} containerNamespace The container namespace
  */
-function replaceContainerNameInFile(file, containerNameKebabCase, containerNamePascalCase) {
+function replaceContainerNameInFile(
+  file,
+  containerNameKebabCase,
+  containerNamePascalCase,
+  containerNamespace
+) {
   const data = fs.readFileSync(file, 'utf8');
-  let result = data.replace(/amalgam-test-container/g, containerNameKebabCase);
+  const isPackageJson = file.match(/(package\.json)$/);
+  let result = data.replace(
+    /amalgam-test-container/g,
+    isPackageJson && containerNamespace
+      ? `@${containerNamespace}/${containerNameKebabCase}`
+      : containerNameKebabCase
+  );
   result = result.replace(/AmalgamTestContainer/g, containerNamePascalCase);
   result = result.replace(/ContainerController/g, `${containerNamePascalCase}Controller`);
   return fs.writeFile(file, result, 'utf8');
@@ -32,8 +44,14 @@ function replaceContainerNameInFile(file, containerNameKebabCase, containerNameP
  * @param {string} destCopyPath The path to the newly created container
  * @param {string} containerNameKebabCase The container name in kebab case
  * @param {string} containerNamePascalCase The container name in pascal case
+ * @param {string} containerNamespace The container namespace
  */
-function updateComponentNameInFiles(destCopyPath, containerNameKebabCase, containerNamePascalCase) {
+function updateComponentNameInFiles(
+  destCopyPath,
+  containerNameKebabCase,
+  containerNamePascalCase,
+  containerNamespace
+) {
   return new Promise((resolve, reject) => {
     // Get the file globs
     glob(`${destCopyPath}/**/*.*`, (err, files) => {
@@ -44,7 +62,8 @@ function updateComponentNameInFiles(destCopyPath, containerNameKebabCase, contai
         await replaceContainerNameInFile(
           file,
           containerNameKebabCase,
-          containerNamePascalCase
+          containerNamePascalCase,
+          containerNamespace
         ).catch(replaceErr => {
           reject(replaceErr);
         });
@@ -85,6 +104,7 @@ async function generateContainer(argv) {
   const progressBar = new cliProgressBar.Bar({}, cliProgressBar.Presets.legacy);
   const containerNamePascalCase = pascalCase(argv.containerName);
   const containerNameKebabCase = _.kebabCase(argv.containerName);
+  const containerNamespace = _.kebabCase(argv.namespace);
   const destCopyPath = path.join(process.cwd(), argv.dest, containerNameKebabCase);
   progressBar.start(100, 0);
 
@@ -101,7 +121,12 @@ async function generateContainer(argv) {
       throw err;
     });
 
-  await updateComponentNameInFiles(destCopyPath, containerNameKebabCase, containerNamePascalCase)
+  await updateComponentNameInFiles(
+    destCopyPath,
+    containerNameKebabCase,
+    containerNamePascalCase,
+    containerNamespace
+  )
     .then(() => {
       progressBar.update(25);
       console.log(chalk.green(`Generate Container: Container names updated!`));
